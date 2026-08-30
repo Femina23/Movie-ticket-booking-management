@@ -42,8 +42,8 @@ The Movie Ticket Request case contains the following primary stages:
 - Show Time: 3:00 PM
 - Seat Numbers: A1, A2
 - Ticket Price: $150
-- Ticket Quantity: 4
-- Total Cost: $600
+- Ticket Quantity: 2
+- Total Cost: $300
 - Seat Availability: Available
 - Booking Status: Confirmed
 - Payment Method: Credit Card
