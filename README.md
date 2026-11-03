@@ -1,287 +1,182 @@
-# 🎬 Movie Ticket Booking Management
+# Movie Ticket Booking Management System
 
-## 📌 Project Overview
+<p align="center">
+  <img src="https://img.shields.io/badge/Platform-Pega-002D72?style=for-the-badge&logo=pega&logoColor=white" alt="Pega Platform"/>
+  <img src="https://img.shields.io/badge/App_Studio-Used-0078D4?style=for-the-badge" alt="App Studio"/>
+  <img src="https://img.shields.io/badge/Dev_Studio-Used-00BCF2?style=for-the-badge" alt="Dev Studio"/>
+  <img src="https://img.shields.io/badge/Case_Management-Enabled-28A745?style=for-the-badge" alt="Case Management"/>
+  <img src="https://img.shields.io/badge/Internship-Pega_NIP-FF6F00?style=for-the-badge" alt="Pega NIP"/>
+</p>
 
-Movie Ticket Booking Management is a Pega-based application developed as part of the National Internship Program (NIP).
+<p align="center">
+  <strong>A Pega-Based Low-Code Solution for End-to-End Movie Ticket Booking Automation</strong>
+</p>
 
-The application manages the complete movie ticket booking lifecycle, starting from customer request submission and continuing through show availability verification, cost calculation, booking confirmation, ticket processing, and customer notification.
-
-The project demonstrates the use of Pega case management, data objects, business rules, decision tables, SLA configuration, and automated workflow processing.
-
----
-
-## 🛠️ Platform & Tools
-
-- Pega Platform
-- Pega App Studio
-- Pega Dev Studio
-- Pega Academy
-- Pega Blueprint
-
----
-
-## 📋 Application Details
-
-- **Application Name:** Movie Ticket Booking Management
-- **Case Type:** Movie Ticket Request
-- **Project:** Movie Ticket Booking
-- **Program:** Pega National Internship Program (NIP)
+<p align="center">
+  <a href="#overview">Overview</a> •
+  <a href="#features">Features</a> •
+  <a href="#case-lifecycle">Case Lifecycle</a> •
+  <a href="#platform--tools">Platform & Tools</a> •
+  <a href="#application-details">Application Details</a> •
+  <a href="#screenshots">Screenshots</a> •
+  <a href="#documentation">Documentation</a> •
+  <a href="#acknowledgement">Acknowledgement</a> •
+  <a href="#author">Author</a>
+</p>
 
 ---
 
-## 🔄 Case Lifecycle
+## Overview
 
-The **Movie Ticket Request** case is designed with the following primary stages:
+The **Movie Ticket Booking Management System** is a Pega-based case management application developed as part of the **Pega National Internship Program (NIP)**. It automates and streamlines the complete movie ticket booking process — from customer request submission to booking confirmation, ticket processing, and customer notification.
 
-1. Request Submission
-2. Availability Check
-3. Cost Calculation
-4. Booking Confirmation
-5. Process Booking
-6. Notify Customer
-
-The application also contains alternate stages for handling exceptional booking scenarios.
+This application leverages Pega's powerful low-code capabilities to demonstrate real-world business process automation, including rule-based decision making, data modeling, service-level agreements (SLAs), and intelligent workflow orchestration.
 
 ---
 
-## 🔁 Application Workflow
+## Features
 
-The overall booking workflow is:
-
-**Customer Request**
-⬇️  
-**Request Submission**
-⬇️  
-**Availability Check**
-⬇️  
-**Cost Calculation**
-⬇️  
-**Booking Confirmation**
-⬇️  
-**Process Booking**
-⬇️  
-**Notify Customer**
-⬇️  
-**Case Resolution**
-
-### 1️⃣ Request Submission
-
-The booking process begins when the customer submits a Movie Ticket Request.
-
-The application captures booking information such as:
-
-- Attendee
-- Movie Name
-- Show Date
-- Show Time
-- Ticket Quantity
-- Show Type
-- Discount Code
-
-Required-field validation is applied before the case proceeds to the next stage.
-
-### 2️⃣ Availability Check
-
-The application checks the selected show's availability before continuing with the booking.
-
-This stage handles:
-
-- Fetching show information
-- Evaluating seat availability
-- Checking available seat count
-- Updating Seat Availability Status
-
-The booking proceeds when seats are available.
-
-### 3️⃣ Cost Calculation
-
-The application calculates the booking amount automatically based on the ticket price and requested ticket quantity.
-
-**Formula:**
-
-`Total Cost = Ticket Price × Ticket Quantity`
-
-Example:
-
-`$150 × 2 Tickets = $300`
-
-This reduces manual calculation and ensures that the booking amount is generated consistently.
-
-### 4️⃣ Booking Confirmation
-
-The booking details are presented to the customer for review.
-
-The summary includes:
-
-- Movie Name
-- Show Date
-- Show Time
-- Show Type
-- Ticket Quantity
-- Ticket Price
-- Total Cost
-- Payment Method
-- Booking Status
-
-The application also contains alternate stages such as **Rejected Request** for handling bookings that do not proceed through the normal confirmation flow.
-
-### 5️⃣ Process Booking
-
-After confirmation, the application processes the ticket booking.
-
-This stage performs activities such as:
-
-- Lock Seats
-- Generate Booking ID / Ticket ID
-- Update booking information
-- Assign Seat Numbers
-- Update Booking Confirmation Status
-- Route the booking based on Show Type
-
-A Decision Table is used to support show-type-based routing.
-
-### 6️⃣ Notify Customer
-
-After the booking is processed, the application executes the customer notification stage.
-
-The notification contains relevant booking information such as:
-
-- Case ID
-- Movie Name
-- Show details
-- Booking confirmation information
-
-The case then reaches completion.
+- **End-to-End Booking Automation** – Seamlessly handles the entire ticket booking lifecycle with minimal manual intervention.
+- **Case-Centric Workflow** – Built using Pega's Case Management framework to ensure structured and trackable processes.
+- **Real-Time Availability Check** – Validates movie show availability before proceeding to booking.
+- **Automated Cost Calculation** – Dynamically calculates ticket prices based on show details and seat selection.
+- **Smart Decisioning** – Implements Decision Tables and Business Rules for accurate, rule-driven logic.
+- **SLA Tracking** – Monitors each stage of the case lifecycle to ensure timely processing.
+- **Automated Notifications** – Keeps customers informed through timely updates at key booking milestones.
+- **User-Friendly Interface** – Designed using Pega App Studio for an intuitive and responsive user experience.
+- **Data-Driven Design** – Utilizes Pega Data Objects for efficient storage and retrieval of booking-related data.
 
 ---
 
-## 🧠 Business Rules & Automation
+## Case Lifecycle
 
-The application uses Pega business rules and workflow automation to reduce manual processing.
+The `Movie Ticket Request` case follows a well-defined, stage-based lifecycle to ensure a smooth and consistent booking experience:
 
-### Automatic Cost Calculation
-
-The **Compute Booking Total** step calculates:
-
-`Total Cost = Ticket Price × Ticket Quantity`
-
-### Show Availability
-
-Seat availability information is evaluated before the booking continues.
-
-The application maintains:
-
-- Seat Availability Status
-- Available Seats Count
-
-### Show-Type Routing
-
-The **RouteBookingRequestByShowType** Decision Table is used for routing booking requests.
-
-- Premium → Premium Show Queue
-- Special → Premium Show Queue
-- Other Show Types → Standard Show Queue
-
-### Service Level Agreement (SLA)
-
-A Custom SLA is configured for the Booking Confirmation stage.
-
-- **Goal:** 1 Day
-- **Deadline:** 2 Days
-- **Urgency Increase:** +10
-
-This helps prioritize booking requests that are approaching their processing deadline.
+| Stage | Description |
+| --- | --- |
+| **1. Request Submission** | Customer initiates a movie ticket request by providing movie, theatre, showtime, and seat preferences. |
+| **2. Availability Check** | The system verifies seat availability for the selected show in real-time. |
+| **3. Cost Calculation** | Ticket cost is automatically calculated based on show type, number of seats, and applicable charges. |
+| **4. Booking Confirmation** | The customer reviews the booking details and confirms the request before final processing. |
+| **5. Process Booking** | The system finalizes the booking, allocates seats, and updates availability records. |
+| **6. Ticket Issuance & Notification** | A confirmation is generated, and the customer is notified of successful booking details. |
 
 ---
 
-## 🗃️ Data Management
+## Platform & Tools
 
-A reusable **Movie** data object is used to maintain movie-related information.
-
-It includes properties such as:
-
-- Movie Title
-- Genre
-- Director
-- Duration
-- Release Date
-- Country of Origin
-- Certification
-- Language
-- Cast
-- Production Company
-- Synopsis
-- Trailer URL
-- Movie Poster
-- Average Rating
-- Show List
-
-The data object is linked with the Movie Ticket Request case for reusable movie and show information.
+| Tool/Platform | Purpose |
+| --- | --- |
+| **[Pega Platform](https://www.pega.com/)** | Core low-code platform used to build and deploy the application |
+| **[Pega App Studio](https://docs.pega.com/)** | Used for designing the user interface, case types, and workflows |
+| **[Pega Dev Studio](https://docs.pega.com/)** | Used for advanced configurations, rules, data models, and integrations |
+| **[Pega Blueprint](https://www.pega.com/products/pega-blueprint)** | Used for application design, planning, and requirement mapping |
+| **[Pega Academy](https://academy.pega.com/)** | Learning resource used to build, test, and validate Pega concepts |
 
 ---
 
-## ✨ Key Features
+## Application Details
 
-- Movie ticket request submission
-- Required-field validation
-- Movie and show information management
-- Show availability checking
-- Seat availability verification
-- Automatic ticket cost calculation
-- Booking summary and confirmation
-- Seat assignment
-- Ticket ID generation
-- Booking processing
-- Decision Table based routing
-- Customer notification
-- Custom SLA configuration
-- Alternate-stage handling
+| Field | Value |
+| --- | --- |
+| **Application Name** | Movie Ticket Booking Management |
+| **Case Type** | Movie Ticket Request |
+| **Project Title** | Movie Ticket Booking Management System |
+| **Program** | Pega National Internship Program (NIP) |
+| **Developer** | Femina |
+| **Platform** | Pega Infinity / Pega Platform |
 
 ---
 
-## 🎟️ Sample Booking
+## Screenshots
 
-| Field | Sample Value |
-|---|---|
-| Movie Name | Cosmic Adventure |
-| Show Type | IMAX |
-| Show Date | 15 September 2026 |
-| Show Time | 3:00 PM |
-| Seat Numbers | A1, A2 |
-| Ticket Price | $150 |
-| Ticket Quantity | 2 |
-| Total Cost | $300 |
-| Seat Availability | Available |
-| Booking Status | Confirmed |
-| Payment Method | Credit Card |
+A glimpse of the application interface and workflow designed during development:
+
+<p align="center">
+  <img src="Screenshot%20(860).png" width="800" alt="Movie Ticket Booking Screenshot 1"/>
+</p>
+
+<p align="center">
+  <img src="Screenshot%20(861).png" width="800" alt="Movie Ticket Booking Screenshot 2"/>
+</p>
+
+<p align="center">
+  <img src="Screenshot%20(866).png" width="800" alt="Movie Ticket Booking Screenshot 3"/>
+</p>
+
+<p align="center">
+  <img src="Screenshot%20(867).png" width="800" alt="Movie Ticket Booking Screenshot 4"/>
+</p>
+
+<p align="center">
+  <img src="Screenshot%20(870).png" width="800" alt="Movie Ticket Booking Screenshot 5"/>
+</p>
+
+<p align="center">
+  <img src="Screenshot%20(872).png" width="800" alt="Movie Ticket Booking Screenshot 6"/>
+</p>
+
+<p align="center">
+  <img src="Screenshot%20(879).png" width="800" alt="Movie Ticket Booking Screenshot 7"/>
+</p>
+
+<p align="center">
+  <img src="Screenshot%20(880).png" width="800" alt="Movie Ticket Booking Screenshot 8"/>
+</p>
+
+<p align="center">
+  <img src="Screenshot%20(882).png" width="800" alt="Movie Ticket Booking Screenshot 9"/>
+</p>
+
+<p align="center">
+  <img src="Screenshot%20(883).png" width="800" alt="Movie Ticket Booking Screenshot 10"/>
+</p>
+
+<p align="center">
+  <img src="Screenshot%20(884).png" width="800" alt="Movie Ticket Booking Screenshot 11"/>
+</p>
+
+<p align="center">
+  <img src="Screenshot%20(885).png" width="800" alt="Movie Ticket Booking Screenshot 12"/>
+</p>
 
 ---
 
-## 🏆 Project Result
+## Documentation
 
-The primary **Movie Ticket Request** workflow was successfully configured and tested in Pega.
+The detailed project report is included in this repository:  
 
-The application demonstrates an end-to-end booking process covering request submission, availability verification, automated cost calculation, booking confirmation, ticket processing, routing, and customer notification.
+[`1_MovieTicketBooking_N_Femina.docx`](1_MovieTicketBooking_N_Femina.docx)
 
-The project also demonstrates practical implementation of Pega concepts including:
-
-- Case Types
-- Stages and Steps
-- Data Objects
-- Business Rules
-- Decision Tables
-- SLA Configuration
-- Workflow Automation
-- Alternate Stages
+It covers the complete project analysis, case design, rules, workflows, SLAs, and implementation details as per the Pega National Internship Program requirements.
 
 ---
 
-## 🎓 National Internship Program
+## Key Learnings
 
-This project was developed as part of the **Pega National Internship Program (NIP)** to demonstrate practical knowledge of application development and case management using the Pega Platform.
+- Gained hands-on experience with **Pega Case Management** and stage-based workflows
+- Implemented **Business Rules**, **Decision Tables**, and **Data Transforms**
+- Configured **SLAs** to track case progress and deadlines
+- Designed and modeled **Data Objects** for structured data handling
+- Applied **UI design principles** using Pega App Studio
+- Understood end-to-end **low-code application development** in Pega
 
 ---
 
-## 👩‍💻 Author
+## Acknowledgement
 
-**N Femina**
+I would like to express my sincere gratitude to the **Pega Team** and the **National Internship Program (NIP)** coordinators for providing this opportunity to learn, build, and showcase my skills. A special thanks to all mentors who guided me throughout the development of this project.
+
+---
+
+## Author
+
+**Femina**  
+
+[![GitHub](https://img.shields.io/badge/GitHub-Femina23-181717?style=for-the-badge&logo=github)](https://github.com/Femina23)
+
+---
+
+<p align="center">
+  <i>Built with Pega Low-Code Platform | Developed as part of Pega National Internship Program</i>
+</p>
